@@ -1,0 +1,11 @@
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoReduce1.exe.config
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoReduce1.exe
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoReduce1.pdb
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoDB.Bson.dll
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoDB.Driver.Core.dll
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoDB.Driver.dll
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoDB.Bson.xml
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\bin\Debug\MongoDB.Driver.xml
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.csprojResolveAssemblyReference.cache
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.exe
+c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.pdb
