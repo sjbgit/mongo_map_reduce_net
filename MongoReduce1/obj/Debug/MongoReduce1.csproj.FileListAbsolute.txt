@@ -19,3 +19,4 @@ C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\Mon
 C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Driver.dll
 C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Bson.xml
 C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Driver.xml
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\obj\Debug\MongoReduce1.csprojResolveAssemblyReference.cache

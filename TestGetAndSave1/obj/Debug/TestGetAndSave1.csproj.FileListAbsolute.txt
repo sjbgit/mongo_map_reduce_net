@@ -1,0 +1,11 @@
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\TestGetAndSave1.exe.config
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\TestGetAndSave1.exe
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\TestGetAndSave1.pdb
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\MongoDB.Bson.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\MongoDB.Driver.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\MongoDB.Bson.xml
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\bin\Debug\MongoDB.Driver.xml
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\obj\Debug\TestGetAndSave1.csprojResolveAssemblyReference.cache
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\obj\Debug\TestGetAndSave1.exe
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\TestGetAndSave1\obj\Debug\TestGetAndSave1.pdb

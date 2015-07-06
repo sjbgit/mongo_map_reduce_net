@@ -162,4 +162,14 @@ await db.GetCollection<dynamic>("people").InsertOneAsync(person);
 
 
 
+    //public class value
+    //{
+    //    public string count { get; set; }
+    //    public string Category { get; set; }
+    //    public int Minutes { get; set; }
+
+    //}
+
+
+
 }

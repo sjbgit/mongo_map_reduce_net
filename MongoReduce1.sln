@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoReduce1", "MongoReduce1\MongoReduce1.csproj", "{7E71A977-661B-41FF-B3C0-18DC38009406}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoReduce2", "MongoReduce2\MongoReduce2.csproj", "{5B6962BC-142A-4C8F-B387-8EB69D79D05F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestGetAndSave1", "TestGetAndSave1\TestGetAndSave1.csproj", "{8A99F483-D712-42E2-8F5E-AF2A3BD5BBF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{7E71A977-661B-41FF-B3C0-18DC38009406}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E71A977-661B-41FF-B3C0-18DC38009406}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E71A977-661B-41FF-B3C0-18DC38009406}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6962BC-142A-4C8F-B387-8EB69D79D05F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6962BC-142A-4C8F-B387-8EB69D79D05F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6962BC-142A-4C8F-B387-8EB69D79D05F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6962BC-142A-4C8F-B387-8EB69D79D05F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A99F483-D712-42E2-8F5E-AF2A3BD5BBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A99F483-D712-42E2-8F5E-AF2A3BD5BBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A99F483-D712-42E2-8F5E-AF2A3BD5BBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A99F483-D712-42E2-8F5E-AF2A3BD5BBF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
