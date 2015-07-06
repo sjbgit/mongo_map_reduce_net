@@ -9,3 +9,13 @@ c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\
 c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.csprojResolveAssemblyReference.cache
 c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.exe
 c:\users\sbunke\documents\visual studio 2013\Projects\MongoReduce1\MongoReduce1\obj\Debug\MongoReduce1.pdb
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoReduce1.exe.config
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\obj\Debug\MongoReduce1.exe
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\obj\Debug\MongoReduce1.pdb
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoReduce1.exe
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoReduce1.pdb
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Bson.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Driver.Core.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Driver.dll
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Bson.xml
+C:\Users\sbunke\Documents\GitHub\mongo_map_reduce_net\MongoReduce1\bin\Debug\MongoDB.Driver.xml
