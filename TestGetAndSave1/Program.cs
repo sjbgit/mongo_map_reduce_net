@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using System.Linq;
+using MongoDB.Driver.Core.Operations;
+using MongoDB.Driver.Core.WireProtocol.Messages.Encoders;
 using MongoDB.Driver.Linq;
 using MongoDB.Driver.Core;
 
@@ -15,7 +17,15 @@ namespace TestGetAndSave1
     {
         static void Main(string[] args)
         {
-            TestInsert();
+            TestInsertPulseResponsePowerSetRadomRealWorld();
+
+            //THIS WORKS
+            //TestInsertPulseResponsePowerSet();
+
+            //THIS WORKS
+            //TestInsert();
+
+
             //var userName = "test";
             //var password = "password";
 
@@ -46,6 +56,164 @@ namespace TestGetAndSave1
 
         }
 
+
+        private static void TestInsertPulseResponsePowerSetRadomRealWorld()
+        {
+            var client = new MongoClient("mongodb://test1:test1@ds047782.mongolab.com:47782/testcrud");
+            var database = client.GetDatabase("testcrud");
+            var collection = database.GetCollection<BsonDocument>("pulseresponse_0");
+
+            //var interval = 0;
+
+            var options = new List<string> { "A", "B", "C", "D", "E" };
+            
+            var gender = new List<string> { "Male", "Female"};
+            var political = new List<string> {"Democrat", "Republican", "Independent"};
+            var education = new List<string> { "None", "HighSchool", "SomeCollege", "Bachelors", "Masters" };
+            var age = new List<string> { "18to20", "21to30", "31to40", "41to50", "51+" };
+
+
+            var docs = new List<BsonDocument>();
+
+            for (var i = 0; i < 100000; i++)
+            {
+
+                var demos = new List<string>
+                {
+                    gender.RandomFirst(),
+                    political.RandomFirst(),
+                    education.RandomFirst(),
+                    age.RandomFirst(),
+                };
+
+                var optionId = options.RandomFirst();
+
+                var interval = Enumerable.Range(0, 1079).ToList().RandomFirst();
+
+                var powerSet = demos.GetPowerSet().ToList();
+                var delimtedPowerSet = powerSet.Select(x => String.Join("|", x.ToArray()));
+                var preAndPostFixedPowerset = delimtedPowerSet.Select(x => interval + "_" + x + "_" + optionId).ToList();
+
+                var documents =
+                preAndPostFixedPowerset.Select(x => new BsonDocument { { "identifier", x }, { "count", 200 } })
+                    .ToList(); //new BsonDocument { { "identifier", "7_MDT_A_" }, { "count", 200 } };
+
+                //var document = new BsonDocument { { "identifier", "7_MDT_A_" + i.ToString().Reverse().First() }, { "count", 200 } };
+                //var document = new BsonDocument { { "identifier", "7_MDT_A_" }, { "count", 200 } };
+                //docs.Add(document);
+
+                docs.AddRange(documents);
+
+                if (docs.Count >= 1000)
+                {
+                    collection.InsertManyAsync(docs).Wait();
+                    docs.Clear();
+                }
+
+
+            }
+
+
+            collection.InsertManyAsync(docs).Wait();
+
+
+            //var demos = (new List<int> { 99, 88 }).OrderBy(x => x).ToList(); //ascending
+
+            //var powerSet = demos.GetPowerSet().ToList();
+
+            //var joinedDemos = String.Join("|", demos.ToArray());//pipedelimited
+
+
+            //var delimtedPowerSet = powerSet.Select(x => String.Join("|", x.ToArray()));
+
+
+            //var id = interval + "_" + joinedDemos + "_" + optionId;
+
+
+            //var preAndPostFixedPowerset = delimtedPowerSet.Select(x => interval + "_" + x + "_" + optionId).ToList();
+
+            //do in-memory pre-aggregation
+
+
+            //var documents =
+            //    preAndPostFixedPowerset.Select(x => new BsonDocument { { "identifier", x }, { "count", 200 } })
+            //        .ToList(); //new BsonDocument { { "identifier", "7_MDT_A_" }, { "count", 200 } };
+
+
+            //collection.InsertManyAsync(documents).Wait();
+
+
+        }
+
+
+        private static void TestMapReduce()
+        {
+
+            const string map = @"function () {
+                    emit(this.identifier, this.count);
+                }";
+
+
+            const string reduce = @"function (gender, count) {
+                    return Array.sum(count);
+                }";
+
+
+            var client = new MongoClient("mongodb://test1:test1@ds047782.mongolab.com:47782/testcrud");
+            var database = client.GetDatabase("testcrud");
+            var collection = database.GetCollection<BsonDocument>("aggregates");
+
+            var bsonMap = new BsonJavaScript(map);
+
+            var bsonReduce = new BsonJavaScript(reduce);
+
+            //collection.MapReduceAsync(bsonMap, bsonReduce, )
+
+            var x = new MapReduceOutputToCollectionOperation(new CollectionNamespace("testcrud", "aggregates"),
+                new CollectionNamespace("testcrud", "reduced2"), bsonMap, bsonReduce, new MessageEncoderSettings());
+
+            //x.ExecuteAsync();
+        }
+
+
+        private static void TestInsertPulseResponsePowerSet()
+        {
+            var client = new MongoClient("mongodb://test1:test1@ds047782.mongolab.com:47782/testcrud");
+            var database = client.GetDatabase("testcrud");
+            var collection = database.GetCollection<BsonDocument>("pulseresponse_0");
+
+            var interval = 0;
+
+            var optionId = 2000;
+
+            var demos = (new List<int> {99, 88}).OrderBy(x => x).ToList(); //ascending
+
+            var powerSet = demos.GetPowerSet().ToList();
+
+            var joinedDemos = String.Join("|", demos.ToArray());//pipedelimited
+
+
+            var delimtedPowerSet = powerSet.Select(x => String.Join("|", x.ToArray()));
+
+
+            var id = interval + "_" + joinedDemos + "_" + optionId;
+
+
+            var preAndPostFixedPowerset = delimtedPowerSet.Select(x => interval + "_" + x + "_" + optionId).ToList();
+
+            //do in-memory pre-aggregation
+
+
+            var documents =
+                preAndPostFixedPowerset.Select(x => new BsonDocument {{"identifier", x}, {"count", 200}})
+                    .ToList(); //new BsonDocument { { "identifier", "7_MDT_A_" }, { "count", 200 } };
+
+
+            collection.InsertManyAsync(documents).Wait();
+
+
+        }
+
         private async static void TestInsert()
         {
             var client = new MongoClient("mongodb://test1:test1@ds047782.mongolab.com:47782/testcrud");
@@ -59,13 +227,21 @@ namespace TestGetAndSave1
 
             var docs = new List<BsonDocument>();
 
-            for (var i = 0; i < 1000; i++)
+            for (var i = 0; i < 2; i++)
             {
-                var document = new BsonDocument { { "identifier", "0_MDT_A" }, { "count", 200 } };
+                //var document = new BsonDocument { { "identifier", "7_MDT_A_" + i.ToString().Reverse().First() }, { "count", 200 } };
+                var document = new BsonDocument { { "identifier", "7_MDT_A_" }, { "count", 200 } };
                 docs.Add(document);
             }
 
+            //var options = new MapReduceOptions<Aggregate, Aggregate>();
+            //options
+
             collection.InsertManyAsync(docs).Wait();
+
+
+
+            
 
 
             //collection.InsertManyAsync()
@@ -119,5 +295,33 @@ namespace TestGetAndSave1
 
         public string identifier { get; set; }
 
+    }
+
+    public static class ListExtensions
+    {
+        public static T Shift<T>(this List<T> list)
+        {
+            var item = list[0];
+            list.RemoveAt(0);
+            return item;
+        }
+
+        public static IEnumerable<IEnumerable<T>> GetPowerSet<T>(this List<T> list, bool excludeEmptySet = true)
+        {
+            var result = from m in Enumerable.Range(0, 1 << list.Count)
+                         select
+                             from i in Enumerable.Range(0, list.Count)
+                             where (m & (1 << i)) != 0
+                             select list[i];
+
+            return excludeEmptySet ? result.ToList().Skip(1) : result;
+        }
+
+
+
+        public static T RandomFirst<T>(this List<T> list)
+        {
+            return list.OrderBy(x => Guid.NewGuid()).FirstOrDefault();
+        }
     }
 }
