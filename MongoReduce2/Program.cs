@@ -63,9 +63,9 @@ namespace MongoReduce2
             //var builder = new MapReduceOutputToCollectionOperation()
             //var y = new MapReduceOperation<>
             
-            var options = new MapReduceOptions<Movie, Dao>(); //new MapReduceOptionsBuilder();
-            options.JavaScriptMode = true;
-            options.OutputOptions.ToJson();
+            var options = new MapReduceOptions<Movie, BsonDocument>(); //new MapReduceOptionsBuilder();
+            //options.JavaScriptMode = true;
+            //options.OutputOptions.ToJson();
 
             //var col = new MapReduceOutputToCollectionOperation(new CollectionNamespace("testreduce1", "movies"),
             //    new CollectionNamespace("testreduce1", "reduce1"), map, reduce, new MessageEncoderSettings());
@@ -82,10 +82,19 @@ namespace MongoReduce2
             //options.
             //options.SetFinalize(finalize);
             //options.SetOutput(MapReduceOutput.Inline);
-            //var results = collection.MapReduceAsync(map, reduce, options).ToJson();
 
 
 
+            var results = collection.MapReduceAsync(map, reduce, options);
+
+
+            results.Wait();
+
+
+
+            var x = results;
+
+            var y = x.Result.MoveNextAsync().ToBsonDocument();
             //var h = results;
             //results.Start();
 
@@ -152,6 +161,7 @@ namespace MongoReduce2
             //var m = new MapReduceOptions<>
 
             var collection = database.GetCollection<Movie>("movies");
+            //shoule DAO be a BsonDocument?
             var options = new MapReduceOptions<Movie, Dao>();  //new MapReduceOptionsBuilder();
             options.JavaScriptMode = true;
             options.OutputOptions.ToJson();
